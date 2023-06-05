@@ -46,10 +46,10 @@ if __name__ == "__main__":
 
     policy0 = Policy("Policy 0", **pol0)
 
-    # Call random scenarios or policies:
-    #    n_scenarios = 5
-    #    scenarios = sample_uncertainties(dike_model, 50)
-    #    n_policies = 10
+# Call random scenarios or policies:
+#    n_scenarios = 5
+#   scenarios = sample_uncertainties(dike_model, 50)
+#    n_policies = 10
 
     # single run
     #    start = time.time()
