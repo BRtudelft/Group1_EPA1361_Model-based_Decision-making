@@ -13,12 +13,14 @@ from problem_formulation import get_model_for_problem_formulation
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# in dit bestand verder werken voor de MOEA - hierin reference scenario definieren en resultaten opnieuw schrijven.
 
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     model, steps = get_model_for_problem_formulation(2)
 
+#veranderen naar worst case reference values?
     reference_values = {
         "Bmax": 175,
         "Brate": 1.5,
