@@ -20,13 +20,13 @@ if __name__ == "__main__":
 
 #Reference values follow from open exploration - no policy applied here
     reference_values = {
-        "Bmax": 175, #Per dijkring - breach width
-        "Brate": 1.5, #Per dijkring -how fast breach grows over time
-        "pfail": 0.5, #Per dijkring - Kans dat dijk niet breekt
-        "discount rate 0": 3.5, #Calculating present rate values - time step 1
-        "discount rate 1": 3.5, #Calculating present rate values - time step 2
-        "discount rate 2": 3.5, #Calculating present rate values - time step 3
-        "ID flood wave shape": 4, #Welke flood wave shape wordt gebruikt
+        "Bmax": 182.32, #Per dijkring - breach width
+        "Brate": 4.16, #Per dijkring -how fast breach grows over time
+        "pfail": 0.36, #Per dijkring - Kans dat dijk niet breekt
+        "discount rate 0": 2.87, #Calculating present rate values - time step 1
+        "discount rate 1": 2.84, #Calculating present rate values - time step 2
+        "discount rate 2": 2.86, #Calculating present rate values - time step 3
+        "ID flood wave shape": 84, #Welke flood wave shape wordt gebruikt
     }
     scen1 = {}
 
