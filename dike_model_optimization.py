@@ -45,16 +45,16 @@ if __name__ == "__main__":
 
     espilon = [1e3] * len(model.outcomes) #standard value, afh. van runtime
 
-    nfe = 5000  # Set to number that can be seen as converging
+    nfe = 10000  # Set to number that can be seen as converging
 
 
     #toevoegen van archivelogger to caluclate hypervolume _ opnieuw runnen dus!
     convergence_metrics = [
         ArchiveLogger(
-            "./archives",  # important to make a new directory archives to save this information
+            "./data/archives",  # important to make a new directory archives to save this information
             [l.name for l in model.levers],
             [o.name for o in model.outcomes],
-            base_filename="optimization_nfe5000.tar.gz",
+            base_filename="optimization_nfe10000.tar.gz",
         ),
         EpsilonProgress(),
     ]
@@ -71,8 +71,8 @@ if __name__ == "__main__":
         )
 
     #save outcomes to csv file
-    results.to_csv('data/output_data/results_optimization_5000nfe.csv')
-    convergence.to_csv('data/output_data/convergence_optimization_5000nfe.csv')
+    results.to_csv('data/output_data/results_optimization_10000nfe.csv')
+    convergence.to_csv('data/output_data/convergence_optimization_10000nfe.csv')
 
 
 
