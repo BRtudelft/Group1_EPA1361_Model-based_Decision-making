@@ -220,7 +220,7 @@ def get_model_for_problem_formulation(problem_formulation_id):
         dike_cost_variables = []
         rfr_costs_variables = []
         evac_cost_variables = []
-        casuality_varaibles = []
+        casuality_varaibles = [] #typo?
 
         damage_variables.extend(
             [f"{dike}_Expected Annual Damage" for dike in function.dikelist]

@@ -41,18 +41,18 @@ if __name__ == "__main__":
 
     ref_scenario = Scenario("reference", **scen1)
 
-    convergence_metrics = [EpsilonProgress()]
+    #convergence_metrics = [EpsilonProgress()]
 
     espilon = [1e3] * len(model.outcomes) #standard value, afh. van runtime
 
-    nfe = 10000  # Set to number that can be seen as converging
+    nfe = 100  # Set to number that can be seen as converging
 
 
-    #toevoegen van archivelogger to caluclate hypervolume _ opnieuw runnen dus!
+    #toevoegen van archivelogger to caluclate hypervolume _ opnieuw runnen dus! + epsilon progress
     convergence_metrics = [
         ArchiveLogger(
             "./data/archives",  # important to make a new directory archives to save this information
-            [l.name for l in model.levers],
+            [lev_name_.name for lev_name_ in model.levers],
             [o.name for o in model.outcomes],
             base_filename="optimization_nfe10000.tar.gz",
         ),
