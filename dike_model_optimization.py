@@ -6,12 +6,16 @@ from ema_workbench import (
     optimize,
     Scenario,
 )
-from ema_workbench.em_framework.optimization import EpsilonProgress, ArchiveLogger
+from ema_workbench.em_framework.optimization import EpsilonProgress, HyperVolume
 from ema_workbench.util import ema_logging
 
 from problem_formulation import get_model_for_problem_formulation
 import matplotlib.pyplot as plt
 import seaborn as sns
+
+import random
+random.seed(1361)
+
 
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
@@ -41,23 +45,12 @@ if __name__ == "__main__":
 
     ref_scenario = Scenario("reference", **scen1)
 
-    #convergence_metrics = [EpsilonProgress()]
+    #Toevoegen hypervolume
+    convergence_metrics = [EpsilonProgress()]
 
     espilon = [1e3] * len(model.outcomes) #standard value, afh. van runtime
 
-    nfe = 100  # Set to number that can be seen as converging
-
-
-    #toevoegen van archivelogger to caluclate hypervolume _ opnieuw runnen dus! + epsilon progress
-    convergence_metrics = [
-        ArchiveLogger(
-            "./data/archives",  # important to make a new directory archives to save this information
-            [lev_name_.name for lev_name_ in model.levers],
-            [o.name for o in model.outcomes],
-            base_filename="optimization_nfe10000.tar.gz",
-        ),
-        EpsilonProgress(),
-    ]
+    nfe = 10000  # Set to number that can be seen as converging
 
     #Perform model evaluation
     with MultiprocessingEvaluator(model) as evaluator:
