@@ -22,7 +22,7 @@ if __name__ == "__main__":
 
     model, steps = get_model_for_problem_formulation(2) #select right problem formulation
 
-#Reference values follow from open exploration - no policy applied here
+#Reference values follow from open exploration - based on assumption of worst case scenario
     reference_values = {
         "Bmax": 182.32, #Per dijkring - breach width
         "Brate": 4.16, #Per dijkring -how fast breach grows over time
@@ -45,12 +45,11 @@ if __name__ == "__main__":
 
     ref_scenario = Scenario("reference", **scen1)
 
-    #Toevoegen hypervolume
     convergence_metrics = [EpsilonProgress()]
 
-    espilon = [1e3] * len(model.outcomes) #standard value, afh. van runtime
+    espilon = [1e3] * len(model.outcomes)
 
-    nfe = 10000  # Set to number that can be seen as converging
+    nfe = 10000
 
     #Perform model evaluation
     with MultiprocessingEvaluator(model) as evaluator:
@@ -66,13 +65,3 @@ if __name__ == "__main__":
     #save outcomes to csv file
     results.to_csv('data/output_data/results_optimization_10000nfe.csv')
     convergence.to_csv('data/output_data/convergence_optimization_10000nfe.csv')
-
-
-
-    #lijkt nu niet nodig?
-    fig, (ax1, ax2) = plt.subplots(ncols=2, sharex=True)
-    fig, ax1 = plt.subplots(ncols=1)
-    ax1.plot(convergence.epsilon_progress)
-    ax1.set_xlabel("nr. of generations")
-    ax1.set_ylabel(r"$\epsilon$ progress")
-    sns.despine()
