@@ -6,6 +6,7 @@
 
 import pandas as pd
 import networkx as nx
+import random
 
 # make sure pandas is version 1.0 or higher
 # make sure networkx is verion 2.4 or higher
@@ -19,6 +20,8 @@ from ema_workbench import (
 )
 from problem_formulation import get_model_for_problem_formulation
 
+random.seed(1361)
+
 ### Problem formulation
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
@@ -29,9 +32,7 @@ if __name__ == "__main__":
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)
 
-
     ### Model zero policies
-
     def get_do_nothing_dict():
         return {l.name: 0 for l in dike_model.levers}
 
@@ -43,7 +44,6 @@ if __name__ == "__main__":
                 get_do_nothing_dict(),
                 **{}
             ),
-
         )
     ]
 
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
     scenarios_base = 20000
 
-    # running the model through EMA workbench
+    # Running the model through EMA workbench
     with MultiprocessingEvaluator(dike_model) as evaluator:
         results_base = evaluator.perform_experiments(scenarios_base, policies)
 
@@ -66,15 +66,15 @@ if __name__ == "__main__":
     outcomes_20000s_0p['policy'] = policies
 
     # Print outcomes
-    outcomes_20000s_0p
+    #outcomes_20000s_0p
 
     experiments_20000s_0p = experiments_base
-    experiments_20000s_0p
+    #experiments_20000s_0p
 
     # Both saved to the data map as csv file
 
-    outcomes_20000s_0p.to_csv('data/output_data/outcomes_2000s_0p.csv')
-    experiments_20000s_0p.to_csv('data/output_data/experiments_2000s_0p.csv')
+    outcomes_20000s_0p.to_csv('data/output_data/outcomes_20000s_0p.csv')
+    experiments_20000s_0p.to_csv('data/output_data/experiments_20000s_0p.csv')
 
     # Number of random policies
     n_random_policies = 100
@@ -93,9 +93,19 @@ if __name__ == "__main__":
     outcomes_20000s_100p_random['policy'] = policies
 
     experiments_20000s_100p_random = experiments_base_random
-    experiments_20000s_100p_random
 
     outcomes_20000s_100p_random.to_csv('data/output_data/outcomes_20000s_100p_random.csv')
     experiments_20000s_100p_random.to_csv('data/output_data/experiments_20000s_100p_random.csv')
 
+    # Merge datasets
+    outcomes_0 = pd.read_csv('data/output_data/outcomes_20000s_0p.csv')
+    outcomes_random = pd.read_csv('data/output_data/outcomes_20000s_100p_random.csv')
+    outcomes_complete = outcomes_0.merge(outcomes_random, how='outer')
 
+    experiments_0 = pd.read_csv('data/output_data/experiments_20000s_0p.csv')
+    experiments_random = pd.read_csv('data/output_data/experiments_20000s_100p_random.csv')
+    experiments_complete = experiments_0.merge(experiments_random, how='outer')
+
+    # Check how this looks by printing
+    outcomes_complete
+    experiments_complete
