@@ -62,16 +62,40 @@ if __name__ == "__main__":
     experiments_base, outcomes_base = results_base
     # Policy distinction is necessary because of the legend.
     policies = experiments_base['policy']
-    outcomes_2000s_0p = pd.DataFrame.from_dict(outcomes_base)
-    outcomes_2000s_0p['policy'] = policies
+    outcomes_20000s_0p = pd.DataFrame.from_dict(outcomes_base)
+    outcomes_20000s_0p['policy'] = policies
 
     # Print outcomes
-    outcomes_2000s_0p
+    outcomes_20000s_0p
 
-    experiments_2000s_0p = experiments_base
-    experiments_2000s_0p
+    experiments_20000s_0p = experiments_base
+    experiments_20000s_0p
 
     # Both saved to the data map as csv file
 
-    outcomes_2000s_0p.to_csv('data/output_data/outcomes_2000s_0p.csv')
-    experiments_2000s_0p.to_csv('data/output_data/experiments_2000s_0p.csv')
+    outcomes_20000s_0p.to_csv('data/output_data/outcomes_2000s_0p.csv')
+    experiments_20000s_0p.to_csv('data/output_data/experiments_2000s_0p.csv')
+
+    # Number of random policies
+    n_random_policies = 100
+
+    # running the model through EMA workbench
+    with MultiprocessingEvaluator(dike_model) as evaluator:
+        results_base_random = evaluator.perform_experiments(scenarios_base, n_random_policies)
+
+    # Results of 20000 scenarios and 100 random policies saved to csv
+    experiments_base_random, outcomes_base_random = results_base_random
+
+    # Policy distinction is necessary because of the legend.
+    policies = experiments_base_random['policy']
+
+    outcomes_20000s_100p_random = pd.DataFrame.from_dict(outcomes_base_random)
+    outcomes_20000s_100p_random['policy'] = policies
+
+    experiments_20000s_100p_random = experiments_base_random
+    experiments_20000s_100p_random
+
+    outcomes_20000s_100p_random.to_csv('data/output_data/outcomes_20000s_100p_random.csv')
+    experiments_20000s_100p_random.to_csv('data/output_data/experiments_20000s_100p_random.csv')
+
+
