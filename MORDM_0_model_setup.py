@@ -4,7 +4,7 @@
 # Imports needed in the model set up are listed below
 
 # Imports needed in the model set up are listed below
-# NOTE! Model variables must be updated to #scenarios
+# NOTE! Model variables must be updated to scenarios
 
 import pandas as pd
 import networkx as nx
