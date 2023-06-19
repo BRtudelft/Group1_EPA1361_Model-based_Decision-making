@@ -26,7 +26,7 @@ if __name__ == "__main__":
     #policies includes an unnamed column with index from original dataframe with solutions
     policies = pd.read_csv('data/output_data/policies.csv')
 
-    n_scenarios = 5000ç
+    n_scenarios = 5000
 
     policies_to_evaluate = []
     for i, policy in policies.iterrows():
