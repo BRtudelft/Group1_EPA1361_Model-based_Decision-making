@@ -16,27 +16,41 @@ from ema_workbench import (
 # Select seed
 random.seed(1361)
 
+# Note that the Sobol analysis will require N(2k+2) samples, where N is a baseline number of experiments
+# required to cover the uncertainties (let's also assume 1000 in this case) and k is the number of uncertainties.
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     model, steps = get_model_for_problem_formulation(2)
 
-    # Policies includes an unnamed column with index from original dataframe with solutions
-    policies = pd.read_csv('data/output_data/policies.csv')
+    # Perform SOBOl analysis for 1000 scenarios
+    n_scenarios = 10
 
-    # Perform SOBOl analysis for 1000 scenarios and 100 random policies
-    n_scenarios = 1000
-    n_policies = 100
 
+    def get_do_nothing_dict():
+        return {l.name: 0 for l in model.levers}
+
+
+    policies = [
+        Policy(
+            "policy 0",
+            **dict(
+                get_do_nothing_dict(),
+                **{}
+            ),
+        )
+    ]
+
+## ZOALS BESCHREVEN IN ASSIGNMENT 6
     # Run multiprocesser evaluator
     with MultiprocessingEvaluator(model, n_processes=-1) as evaluator:
         experiments, results = evaluator.perform_experiments(n_scenarios,
-                                                             n_policies,
+                                                             policies,
                                                              uncertainty_sampling=Samplers.SOBOL)
 
     results_sobol = pd.DataFrame.from_dict(results)
     # outcomes_sobol['policy'] = policies
 
     # save outcomes to csv file
-    experiments.to_csv('data/output_data/experiments_scenario_discovery_1000s100p_sobol.csv')
-    results_sobol.to_csv('data/output_data/results_scenario_discovery_1000s100p_sobol.csv')
+    experiments.to_csv('data/output_data/sobol_open_exploration_1000s_experiments.csv')
+    results_sobol.to_csv('data/output_data/sobol_open_exploration_1000s_results.csv')
