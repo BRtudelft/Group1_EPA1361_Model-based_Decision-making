@@ -45,3 +45,4 @@ if __name__ == "__main__":
     # save outcomes to csv file
     experiments.to_csv('data/output_data/experiments_scenario_discovery_100s_sobol.csv')
     outcomes_sobol.to_csv('data/output_data/outcomes_scenario_discovery_100s_sobol.csv')
+
