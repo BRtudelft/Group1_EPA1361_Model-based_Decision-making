@@ -1,4 +1,3 @@
-
 ### Model set-up
 # Run with 10000 scenarios, no policies applies
 # Can be later on added to the first chapter.
@@ -30,10 +29,12 @@ if __name__ == "__main__":
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)
 
+
     ### Model zero policies
 
     def get_do_nothing_dict():
         return {l.name: 0 for l in dike_model.levers}
+
 
     policies = [
         Policy(
@@ -42,20 +43,20 @@ if __name__ == "__main__":
                 get_do_nothing_dict(),
                 **{}
             ),
-
-            "policy 0",
+        ),
+        Policy(
+            "Random",
             **dict(
                 get_do_nothing_dict(),
                 **{}
-            ),
+            )
+
         )
     ]
 
-    # Run model #1:
     # Assumptions:
     # Scenario's: 20000
     # Policy's: 0 policy and 100 random policies
-
 
     scenarios_base = 20000
 
