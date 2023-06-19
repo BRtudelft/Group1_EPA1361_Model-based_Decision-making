@@ -33,16 +33,14 @@ if __name__ == "__main__":
         print(i)
 
     with MultiprocessingEvaluator(model, n_processes=-1) as evaluator:
-        results = evaluator.perform_experiments(n_scenarios, policies_to_evaluate, uncertainty_sampling=Samplers.SOBOL)
+        experiments, results = evaluator.perform_experiments(n_scenarios,
+                                                             policies_to_evaluate,
+                                                             uncertainty_sampling=Samplers.SOBOL)
 
-    experiments, outcomes = results
-    # Policy distinction is necessary because of the legend.
-    policies = experiments['policy']
-
-    outcomes_sobol = pd.DataFrame.from_dict(outcomes)
-    outcomes_sobol['policy'] = policies
+    results_sobol = pd.DataFrame.from_dict(results)
+    # outcomes_sobol['policy'] = policies
 
     # save outcomes to csv file
-    experiments.to_csv('data/output_data/experiments_scenario_discovery_100s_sobol.csv')
-    outcomes_sobol.to_csv('data/output_data/outcomes_scenario_discovery_100s_sobol.csv')
+    experiments.to_csv('data/output_data/experiments_scenario_discovery_10s_sobol.csv')
+    results_sobol.to_csv('data/output_data/results_scenario_discovery_10s_sobol.csv')
 
