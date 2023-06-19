@@ -109,3 +109,5 @@ if __name__ == "__main__":
     # Check how this looks by printing
     outcomes_complete
     experiments_complete
+
+    ### SOBOL RUN MET RANDOM SCENARIOS
