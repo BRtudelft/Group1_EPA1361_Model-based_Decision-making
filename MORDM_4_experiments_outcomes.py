@@ -24,15 +24,15 @@ if __name__ == "__main__":
     # Policies includes an unnamed column with index from original dataframe with solutions
     policies = pd.read_csv('data/output_data/policies.csv')
 
-    # We run 100 to test if it saves correctly
-    n_scenarios = 100
+    # We run 10 to test if it saves correctly
+    n_scenarios = 10
 
     policies_to_evaluate = []
     for i, policy in policies.iterrows():
         policies_to_evaluate.append(Policy(str(i), **policy.to_dict()))
         print(i)
 
-    with MultiprocessingEvaluator(model, n_processes=-2) as evaluator:
+    with MultiprocessingEvaluator(model, n_processes=-1) as evaluator:
         results = evaluator.perform_experiments(n_scenarios, policies_to_evaluate, uncertainty_sampling=Samplers.SOBOL)
 
     experiments, outcomes = results
