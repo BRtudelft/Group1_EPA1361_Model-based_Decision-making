@@ -8,6 +8,7 @@
 
 import pandas as pd
 import networkx as nx
+import networkx as nx
 
 # Make sure pandas is version 1.0 or higher
 # Make sure networkx is version 2.4 or higher
