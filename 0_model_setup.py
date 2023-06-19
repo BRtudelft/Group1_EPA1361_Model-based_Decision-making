@@ -43,13 +43,6 @@ if __name__ == "__main__":
                 get_do_nothing_dict(),
                 **{}
             ),
-        ),
-        Policy(
-            "Random",
-            **dict(
-                get_do_nothing_dict(),
-                **{}
-            )
 
         )
     ]
