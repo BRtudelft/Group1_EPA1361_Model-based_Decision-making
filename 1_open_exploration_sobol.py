@@ -24,7 +24,7 @@ if __name__ == "__main__":
     model, steps = get_model_for_problem_formulation(2)
 
     # Perform SOBOl analysis for 1000 scenarios
-    n_scenarios = 10
+    n_scenarios = 1000
 
 
     def get_do_nothing_dict():
