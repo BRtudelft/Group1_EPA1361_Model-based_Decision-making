@@ -1,7 +1,8 @@
 ### Model set-up
-# Run with 10000 scenarios, no policies applies
-# Can be later on added to the first chapter.
-# Imports needed in the model set up are listed below
+# Two runs has been executed for the open exploration:
+# Run with 1000 scenarios, no policies applied.
+# Run with 1000 scenarios, 100 random policies applied
+
 # NOTE! Model variables must be updated to #scenarios
 
 import pandas as pd
@@ -32,10 +33,9 @@ if __name__ == "__main__":
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)
 
-    ### Model zero policies
+    #Run 1: Model zero policies
     def get_do_nothing_dict():
         return {l.name: 0 for l in dike_model.levers}
-
 
     policies = [
         Policy(
@@ -48,44 +48,42 @@ if __name__ == "__main__":
     ]
 
     # Assumptions:
-    # Scenario's: 20000
-    # Policy's: 0 policy and 100 random policies
+    # Scenario's: 1000
+    # Policy's: 0 policy
 
-    scenarios_base = 20000
+    scenarios_base = 1000
 
     # Running the model through EMA workbench
     with MultiprocessingEvaluator(dike_model) as evaluator:
         results_base = evaluator.perform_experiments(scenarios_base, policies)
 
-    # Results of 20000 scenarios and 0 policies saved to csv
-
     experiments_base, outcomes_base = results_base
     # Policy distinction is necessary because of the legend.
     policies = experiments_base['policy']
+
     outcomes_20000s_0p = pd.DataFrame.from_dict(outcomes_base)
     outcomes_20000s_0p['policy'] = policies
 
-    # Print outcomes
-    #outcomes_20000s_0p
-
     experiments_20000s_0p = experiments_base
-    #experiments_20000s_0p
 
     # Both saved to the data map as csv file
 
     outcomes_20000s_0p.to_csv('data/output_data/outcomes_20000s_0p.csv')
     experiments_20000s_0p.to_csv('data/output_data/experiments_20000s_0p.csv')
 
-    # Number of random policies
+    # Run 2: Model 100 random policies
+
+    # Assumptions:
+    # Scenario's: 1000
+    # Policy's: 100 policy
+
     n_random_policies = 100
 
     # running the model through EMA workbench
     with MultiprocessingEvaluator(dike_model) as evaluator:
         results_base_random = evaluator.perform_experiments(scenarios_base, n_random_policies)
 
-    # Results of 20000 scenarios and 100 random policies saved to csv
     experiments_base_random, outcomes_base_random = results_base_random
-
     # Policy distinction is necessary because of the legend.
     policies = experiments_base_random['policy']
 
@@ -94,19 +92,20 @@ if __name__ == "__main__":
 
     experiments_20000s_100p_random = experiments_base_random
 
+    # Both saved to the data map as csv file
     outcomes_20000s_100p_random.to_csv('data/output_data/outcomes_20000s_100p_random.csv')
     experiments_20000s_100p_random.to_csv('data/output_data/experiments_20000s_100p_random.csv')
 
-    # Merge datasets
-    outcomes_0 = pd.read_csv('data/output_data/outcomes_20000s_0p.csv')
-    outcomes_random = pd.read_csv('data/output_data/outcomes_20000s_100p_random.csv')
-    outcomes_complete = outcomes_0.merge(outcomes_random, how='outer')
-
-    experiments_0 = pd.read_csv('data/output_data/experiments_20000s_0p.csv')
-    experiments_random = pd.read_csv('data/output_data/experiments_20000s_100p_random.csv')
-    experiments_complete = experiments_0.merge(experiments_random, how='outer')
-
-    # Check how this looks by printing
-    outcomes_complete
-    experiments_complete
+    # # Merge datasets
+    # outcomes_0 = pd.read_csv('data/output_data/outcomes_20000s_0p.csv')
+    # outcomes_random = pd.read_csv('data/output_data/outcomes_20000s_100p_random.csv')
+    # outcomes_complete = outcomes_0.merge(outcomes_random, how='outer')
+    #
+    # experiments_0 = pd.read_csv('data/output_data/experiments_20000s_0p.csv')
+    # experiments_random = pd.read_csv('data/output_data/experiments_20000s_100p_random.csv')
+    # experiments_complete = experiments_0.merge(experiments_random, how='outer')
+    #
+    # # Check how this looks by printing
+    # outcomes_complete
+    # experiments_complete
 
