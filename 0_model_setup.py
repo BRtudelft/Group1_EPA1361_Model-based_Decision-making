@@ -41,17 +41,21 @@ if __name__ == "__main__":
             **dict(
                 get_do_nothing_dict(),
                 **{}
-            )
+            ),
+
+            "policy 0",
+            **dict(
+                get_do_nothing_dict(),
+                **{}
+            ),
         )
     ]
 
     # Run model #1:
     # Assumptions:
     # Scenario's: 20000
-    # Policy's: 0
+    # Policy's: 0 policy and 100 random policies
 
-    # We chose to run the setup with 0 policies because those will be completely random
-    # and not useful for further analysis, but it would increase the runtime significantly.
 
     scenarios_base = 20000
 
