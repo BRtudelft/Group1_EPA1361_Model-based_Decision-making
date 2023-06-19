@@ -12,7 +12,6 @@ from ema_workbench import (
     Scenario,
     Policy
 )
-ema_logging.log_to_stderr(ema_logging.INFO)
 
 # Select seed
 random.seed(1361)
@@ -31,12 +30,10 @@ if __name__ == "__main__":
     policies_to_evaluate = []
     for i, policy in policies.iterrows():
         policies_to_evaluate.append(Policy(str(i), **policy.to_dict()))
-    print(policies_to_evaluate)
+        print(i)
 
     with MultiprocessingEvaluator(model, n_processes=-2) as evaluator:
-        experiments, results = evaluator.perform_experiments(n_scenarios, policies_to_evaluate,
-                                                             uncertainty_sampling=Samplers.SOBOL)
-
+        results = evaluator.perform_experiments(n_scenarios, policies_to_evaluate, uncertainty_sampling=Samplers.SOBOL)
 
     experiments, outcomes = results
     # Policy distinction is necessary because of the legend.
