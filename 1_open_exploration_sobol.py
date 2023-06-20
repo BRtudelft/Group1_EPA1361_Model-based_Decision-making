@@ -18,13 +18,15 @@ random.seed(1361)
 
 # Note that the Sobol analysis will require N(2k+2) samples, where N is a baseline number of experiments
 # required to cover the uncertainties (let's also assume 1000 in this case) and k is the number of uncertainties.
+#The balance properties of Sobol' points require n to be a power of 2
+
 if __name__ == "__main__":
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     model, steps = get_model_for_problem_formulation(2)
 
-    # Perform SOBOl analysis for 1000 scenarios
-    n_scenarios = 1000
+    # Perform SOBOl analysis for 1024 scenarios 2^10
+    n_scenarios = 1024
 
 
     def get_do_nothing_dict():
