@@ -16,27 +16,31 @@ from problem_formulation import get_model_for_problem_formulation
 import random
 
 # Select seed
-random.seed(1361)
+
 
 if __name__ == "__main__":
+    random.seed(1361) #Seed verplaatst
+
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     model, steps = get_model_for_problem_formulation(2) #select right problem formulation
 
     #policies includes an unnamed column with index from original dataframe with solutions
-    policies = pd.read_csv('data/output_data_oud_check/policies.csv')
+    selected_policies = pd.read_csv('data/output_data/MOEA_selected_policies.csv')
+    #    selected_policies.drop(['policy'])
 
+    #Check with minimal number of scenarios, total of 5 policies
     n_scenarios = 5000
 
     policies_to_evaluate = []
-    for i, policy in policies.iterrows():
+    for i, policy in selected_policies.iterrows():
         policies_to_evaluate.append(Policy(str(i), **policy.to_dict()))
     print(policies_to_evaluate)
 
-    with MultiprocessingEvaluator(model, n_processes=-1) as evaluator:
-        results = evaluator.perform_experiments(n_scenarios, policies_to_evaluate)
+    with MultiprocessingEvaluator(model) as evaluator:
+        results_uncertainty = evaluator.perform_experiments(n_scenarios, policies_to_evaluate)
 
-    experiments, outcomes = results
+    experiments, outcomes = results_uncertainty
     # Policy distinction is necessary because of the legend.
     policies = experiments['policy']
 
@@ -44,5 +48,5 @@ if __name__ == "__main__":
     outcomes_uncertainties['policy'] = policies
 
     #save outcomes to csv file
-    experiments.to_csv('data/output_data_oud_check/experiments_uncertainty_simulation_5000s.csv')
-    outcomes_uncertainties.to_csv('data/output_data_oud_check/outcomes_uncertainty_simulation_5000s.csv')
+    experiments.to_csv('data/output_data/MOEA_uncertainty_experiments.csv')
+    outcomes_uncertainties.to_csv('data/output_data/MOEA_uncertainty_outcomes.csv')
