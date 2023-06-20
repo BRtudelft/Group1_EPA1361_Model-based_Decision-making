@@ -50,9 +50,8 @@ if __name__ == "__main__":
                                                              policies,
                                                              uncertainty_sampling=Samplers.SOBOL)
 
-    results_sobol = pd.DataFrame.from_dict(results)
-    # outcomes_sobol['policy'] = policies
+    outcomes_sobol = pd.DataFrame.from_dict(results)
 
     # save outcomes to csv file
-    experiments.to_csv('data/output_data_oud_check/sobol_open_exploration_1000s_experiments.csv')
-    results_sobol.to_csv('data/output_data_oud_check/sobol_open_exploration_1000s_results.csv')
+    experiments.to_csv('data/output_data/OE_sobol_experiments.csv')
+    outcomes_sobol.to_csv('data/output_data/OE_sobol_outcomes.csv')
