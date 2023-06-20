@@ -56,3 +56,4 @@ if __name__ == "__main__":
     # Both outcomes and experiments saved to the data map as csv file
     outcomes_zero.to_csv('data/output_data/OE_outcomes_zero.csv')
     experiments_zero.to_csv('data/output_data/OE_experiments_zero.csv')
+
