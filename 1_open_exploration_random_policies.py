@@ -1,4 +1,6 @@
-### Model set-up
+# Open exploration
+
+### Model set-up: random 100 policies
 # Run with 1.000 scenarios, 100 random policies applied.
 
 import pandas as pd
@@ -25,7 +27,6 @@ if __name__ == "__main__":
 
     n_scenarios = 1000
     n_random_policies = 100
-
 
     # running the model through EMA workbench
     with MultiprocessingEvaluator(dike_model) as evaluator:
