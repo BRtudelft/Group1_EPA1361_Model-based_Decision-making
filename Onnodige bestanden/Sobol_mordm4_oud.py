@@ -22,7 +22,7 @@ if __name__ == "__main__":
     model, steps = get_model_for_problem_formulation(2)
 
     # Policies includes an unnamed column with index from original dataframe with solutions
-    policies = pd.read_csv('data/output_data_oud_check/policies.csv')
+    policies = pd.read_csv('../data/output_data_oud_check/policies.csv')
 
     # We run 10 to test if it saves correctly
     n_scenarios = 10

@@ -1,3 +1,5 @@
+### Kan er naar mijn idee eigenlijk uit
+
 from ema_workbench import Model, MultiprocessingEvaluator, Policy, Scenario
 
 from ema_workbench.em_framework.evaluators import perform_experiments
@@ -8,6 +10,7 @@ from problem_formulation import get_model_for_problem_formulation
 
 
 if __name__ == "__main__":
+
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     dike_model, planning_steps = get_model_for_problem_formulation(5)
