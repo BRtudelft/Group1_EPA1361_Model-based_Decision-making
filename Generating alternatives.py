@@ -63,5 +63,5 @@ if __name__ == "__main__":
         )
 
     #save outcomes to csv file
-    results.to_csv('data/output_data_oud_check!/results_optimization_10000nfe.csv')
-    convergence.to_csv('data/output_data_oud_check!/convergence_optimization_10000nfe.csv')
+    results.to_csv('data/output_data_oud_check/results_optimization_10000nfe.csv')
+    convergence.to_csv('data/output_data_oud_check/convergence_optimization_10000nfe.csv')

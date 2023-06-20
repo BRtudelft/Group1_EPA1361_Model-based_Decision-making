@@ -65,8 +65,8 @@ if __name__ == "__main__":
     experiments_2000s_0p = experiments_base
 
     # Both saved to the data map as CSV files
-    outcomes_2000s_0p.to_csv('data/output_data_oud_check!/outcomes_2000s_0p.csv')
-    experiments_2000s_0p.to_csv('data/output_data_oud_check!/experiments_2000s_0p.csv')
+    outcomes_2000s_0p.to_csv('data/output_data_oud_check/outcomes_2000s_0p.csv')
+    experiments_2000s_0p.to_csv('data/output_data_oud_check/experiments_2000s_0p.csv')
 
     ### Model random policies
 
