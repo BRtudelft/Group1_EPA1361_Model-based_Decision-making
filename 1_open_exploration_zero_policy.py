@@ -66,8 +66,8 @@ if __name__ == "__main__":
     experiments_20000s_0p = experiments_base
 
     # Both outcomes and experiments saved to the data map as csv file
-    outcomes_20000s_0p.to_csv('data/output_data/outcomes_20000s_0p.csv')
-    experiments_20000s_0p.to_csv('data/output_data/experiments_20000s_0p.csv')
+    outcomes_20000s_0p.to_csv('data/output_data_oud_check!/outcomes_20000s_0p.csv')
+    experiments_20000s_0p.to_csv('data/output_data_oud_check!/experiments_20000s_0p.csv')
 
     # Run 2: Model 100 random policies
 
@@ -92,16 +92,16 @@ if __name__ == "__main__":
     experiments_20000s_100p_random = experiments_base_random
 
     # Both outcomes and experiments saved to the data map as csv file
-    outcomes_20000s_100p_random.to_csv('data/output_data/outcomes_20000s_100p_random.csv')
-    experiments_20000s_100p_random.to_csv('data/output_data/experiments_20000s_100p_random.csv')
+    outcomes_20000s_100p_random.to_csv('data/output_data_oud_check!/outcomes_20000s_100p_random.csv')
+    experiments_20000s_100p_random.to_csv('data/output_data_oud_check!/experiments_20000s_100p_random.csv')
 
     # # Merge datasets
-    # outcomes_0 = pd.read_csv('data/output_data/outcomes_20000s_0p.csv')
-    # outcomes_random = pd.read_csv('data/output_data/outcomes_20000s_100p_random.csv')
+    # outcomes_0 = pd.read_csv('data/output_data_oud_check!/outcomes_20000s_0p.csv')
+    # outcomes_random = pd.read_csv('data/output_data_oud_check!/outcomes_20000s_100p_random.csv')
     # outcomes_complete = outcomes_0.merge(outcomes_random, how='outer')
     #
-    # experiments_0 = pd.read_csv('data/output_data/experiments_20000s_0p.csv')
-    # experiments_random = pd.read_csv('data/output_data/experiments_20000s_100p_random.csv')
+    # experiments_0 = pd.read_csv('data/output_data_oud_check!/experiments_20000s_0p.csv')
+    # experiments_random = pd.read_csv('data/output_data_oud_check!/experiments_20000s_100p_random.csv')
     # experiments_complete = experiments_0.merge(experiments_random, how='outer')
     #
     # # Check how this looks by printing

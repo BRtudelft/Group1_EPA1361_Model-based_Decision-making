@@ -54,5 +54,5 @@ if __name__ == "__main__":
     # outcomes_sobol['policy'] = policies
 
     # save outcomes to csv file
-    experiments.to_csv('data/output_data/sobol_open_exploration_1000s_experiments.csv')
-    results_sobol.to_csv('data/output_data/sobol_open_exploration_1000s_results.csv')
+    experiments.to_csv('data/output_data_oud_check!/sobol_open_exploration_1000s_experiments.csv')
+    results_sobol.to_csv('data/output_data_oud_check!/sobol_open_exploration_1000s_results.csv')

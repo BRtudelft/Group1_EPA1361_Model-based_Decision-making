@@ -24,7 +24,7 @@ if __name__ == "__main__":
     model, steps = get_model_for_problem_formulation(2) #select right problem formulation
 
     #policies includes an unnamed column with index from original dataframe with solutions
-    policies = pd.read_csv('data/output_data/policies.csv')
+    policies = pd.read_csv('data/output_data_oud_check!/policies.csv')
 
     n_scenarios = 5000
 
@@ -44,5 +44,5 @@ if __name__ == "__main__":
     outcomes_uncertainties['policy'] = policies
 
     #save outcomes to csv file
-    experiments.to_csv('data/output_data/experiments_uncertainty_simulation_5000s.csv')
-    outcomes_uncertainties.to_csv('data/output_data/outcomes_uncertainty_simulation_5000s.csv')
+    experiments.to_csv('data/output_data_oud_check!/experiments_uncertainty_simulation_5000s.csv')
+    outcomes_uncertainties.to_csv('data/output_data_oud_check!/outcomes_uncertainty_simulation_5000s.csv')
