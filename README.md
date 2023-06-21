@@ -16,7 +16,7 @@ The py files are generating data and the ipynb notebooks are interpreting the da
 the different steps and datafiles used in the model.
 
 - [1_open_exploration.ipynb](1_open_exploration.ipynb)
-  This file used many different datasets therefor, notebook 1 has three py files. 
+  This file used many different datasets therefore, notebook 1 has three py files. 
 - [1_open_exploration_random_policies.py](1_open_exploration_random_policies.py)
 - [1_open_exploration_sobol.py](1_open_exploration_sobol.py)
 - [1_open_exploration_zero_policy.py](1_open_exploration_zero_policy.py)
@@ -46,8 +46,8 @@ pip install platypus-opt
 ## Imports
 All the imports needed to run this model are listed below, 
 please check if all of these are functional before running the model. 
-
-_import copy
+```
+import copy
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
@@ -88,9 +88,9 @@ from ema_workbench.util import ema_logging
 from ema_workbench.em_framework import get_SALib_problem
 from SALib.analyze.sobol import analyze
 from SALib.analyze import sobol_
-
+```
 ## Versions
 Make sure pandas is version 1.0 or higher and networkx is version 2.4 or higher by running the following command:
 
-_print(pd.__version__)
+_print(pd.__version__);
 print(nx.__version__)_
