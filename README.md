@@ -92,5 +92,7 @@ from SALib.analyze import sobol_
 ## Versions
 Make sure pandas is version 1.0 or higher and networkx is version 2.4 or higher by running the following command:
 
-_print(pd.__version__);
-print(nx.__version__)_
+```
+print(pd.__version__)
+print(nx.__version__)
+```
