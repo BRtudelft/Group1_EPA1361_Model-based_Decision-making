@@ -16,7 +16,7 @@ The py files are generating data and the ipynb notebooks are interpreting the da
 the different steps and datafiles used in the model.
 
 - [1_open_exploration.ipynb](1_open_exploration.ipynb)
-  This file used many different datasets therefore, notebook 1 has three py files. 
+  - This file used many different datasets therefore, notebook 1 has three py files. 
 - [1_open_exploration_random_policies.py](1_open_exploration_random_policies.py)
 - [1_open_exploration_sobol.py](1_open_exploration_sobol.py)
 - [1_open_exploration_zero_policy.py](1_open_exploration_zero_policy.py)
@@ -25,6 +25,15 @@ the different steps and datafiles used in the model.
 - [3_DS_MORDM_uncertainty_analysis.ipynb](3_DS_MORDM_uncertainty_analysis.ipynb)
 - [3_MORDM_uncertainty.py](3_MORDM_uncertainty.py)
 - [4_DS_MORDM_scenario_discovery.ipynb](4_DS_MORDM_scenario_discovery.ipynb)
+
+### Input functions from EPA1361 course
+- [dike_model_function.py](dike_model_function.py)
+- [dike_model_simulation.py](dike_model_simulation.py)
+- [funs_dikes.py](funs_dikes.py)
+- [funs_economy.py](funs_economy.py)
+- [funs_generate_network.py](funs_generate_network.py)
+- [funs_hydrostat.py](funs_hydrostat.py)
+- [problem_formulation.py](problem_formulation.py)
 
 ## Requirements
 ### ema_workbench
