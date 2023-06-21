@@ -17,10 +17,11 @@ from problem_formulation import get_model_for_problem_formulation
 print(pd.__version__)
 print(nx.__version__)
 
-random.seed(1361)
+
 
 ### Problem formulation
 if __name__ == "__main__":
+    random.seed(1361)
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)
