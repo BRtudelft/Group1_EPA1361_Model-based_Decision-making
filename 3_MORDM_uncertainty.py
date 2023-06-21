@@ -29,8 +29,8 @@ if __name__ == "__main__":
     selected_policies = pd.read_csv('data/output_data/MOEA_selected_policies.csv')
     #    selected_policies.drop(['policy'])
 
-    #Check with minimal number of scenarios, total of 5 policies
-    n_scenarios = 5000
+    #Check with minimal number of scenarios, total of 5 policies - 10000 scenarios
+    n_scenarios = 10000
 
     policies_to_evaluate = []
     for i, policy in selected_policies.iterrows():
