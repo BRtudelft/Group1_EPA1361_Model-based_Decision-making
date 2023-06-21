@@ -1,9 +1,8 @@
-### EPA1361 Model-based Decision-making
+# EPA1361 Model-based Decision-making
 Welcome to model made by group 1: Friso Pladet, Finn Blom, Suze van Santen, Mart Vloet, Max Kerpel, Kas Hogeboom 
 & Britt Reddingius
 
-# The model is made to find policies that could be implemented for the flood prevention of the IJssel river in the 
-# Netherlands. 
+### The model is made to find policies that could be implemented for the flood prevention of the IJssel river in the Netherlands. 
 
 Within the repository, you will find three distinct files dedicated to open exploration. This division exists because 
 two Python files (.py) were utilized for generating data, while the Notebook files (.ipynb) were employed for data 
@@ -12,7 +11,7 @@ For the two Python files, one of the Python files was employed for random scenar
 utilized for SOBOL. Subsequently, all the information was imported into the same notebook file for the visualisation.
 
 
-### Contents
+## Contents
 The py files are generating data and the ipynb notebooks are interpreting the data. The numbers 1 through 4 distinguish
 the different steps and datafiles used in the model.
 
@@ -27,8 +26,8 @@ the different steps and datafiles used in the model.
 - [3_MORDM_uncertainty.py](3_MORDM_uncertainty.py)
 - [4_DS_MORDM_scenario_discovery.ipynb](4_DS_MORDM_scenario_discovery.ipynb)
 
-### Requirements
-## ema_workbench
+## Requirements
+### ema_workbench
 This repository is tested on Python 3.11. It has the same dependencies as the EMAworkbench version 2.4.1 
 (see [installation guide] (https://emaworkbench.readthedocs.io/en/latest/getting_started/installation.html)). 
 Furthermore, it uses [seaborn](https://github.com/mwaskom/seaborn) for many of the plots.
