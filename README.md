@@ -64,7 +64,7 @@ from ema_workbench.analysis import (feature_scoring,
                                     dimensional_stacking, 
                                     parcoords)
 
-from ema_workbench import (Model, 
+from ema_workbench import (Model,
                            RealParameter, 
                            ScalarOutcome,
                            MultiprocessingEvaluator, 
