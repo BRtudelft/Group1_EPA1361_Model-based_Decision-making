@@ -1,30 +1,39 @@
-# EPA1361 Model-based Decision-making
-Welcome to model made by group 1: Friso Pladet, Finn Blom, Suze van Santen, Mart Vloet, Max Kerpel, Kas Hogeboom 
+# EPA1361 Model-based Decision-making - GROUP 1
+This repository presents analysis performed by Group 1 on the dike_model for the course EPA1361 Model-based Decision-making at TU Delft.
+The original model was provided by course instructors and is based on the Room for the River IJssel case. 
+
+Group 1:
+Friso Pladet, Finn Blom, Suze van Santen, Mart Vloet, Max Kerpel, Kas Hogeboom 
 & Britt Reddingius
 
-### The model is made to find policies that could be implemented for the flood prevention of the IJssel river in the Netherlands. 
+### The model is used to select potential policies that could be implemented in the flood prevention of the IJssel river in the Netherlands. 
 
 Within the repository, you will find three distinct files dedicated to open exploration. This division exists because 
 two Python files (.py) were utilized for generating data, while the Notebook files (.ipynb) were employed for data 
 visualization. Notebooks excel at visualization but lack the necessary speed for handling numerous iterations promptly. 
-For the two Python files, one of the Python files was employed for random scenarios, whereas the other Python file was 
-utilized for SOBOL. Subsequently, all the information was imported into the same notebook file for the visualisation.
-
 
 ## Contents
 The py files are generating data and the ipynb notebooks are interpreting the data. The numbers 1 through 4 distinguish
 the different steps and datafiles used in the model.
 
 - [1_open_exploration.ipynb](1_open_exploration.ipynb)
-  - This file used many different datasets therefore, notebook 1 has three py files. 
+  - Open exploration of the dike model
 - [1_open_exploration_random_policies.py](1_open_exploration_random_policies.py)
+  - Generated data is analysed in [1_open_exploration.ipynb](1_open_exploration.ipynb)
 - [1_open_exploration_sobol.py](1_open_exploration_sobol.py)
+  - Generated data is analysed in [1_open_exploration.ipynb](1_open_exploration.ipynb)
 - [1_open_exploration_zero_policy.py](1_open_exploration_zero_policy.py)
+  - Generated data is analysed in [1_open_exploration.ipynb](1_open_exploration.ipynb)
 - [2_DS_MORDM_generating_alternatives.ipynb](2_DS_MORDM_generating_alternatives.ipynb)
+  - Analysis of generated policy proposals
 - [2_MORDM_MOEA.py](2_MORDM_MOEA.py)
+  - Implementation of MOEA. Generated data is analysed in [2_DS_MORDM_generating_alternatives.ipynb](2_DS_MORDM_generating_alternatives.ipynb)
 - [3_DS_MORDM_uncertainty_analysis.ipynb](3_DS_MORDM_uncertainty_analysis.ipynb)
+  - Uncertainty analysis of selected policy proposals
 - [3_MORDM_uncertainty.py](3_MORDM_uncertainty.py)
+  - Generated data is analysed in [3_DS_MORDM_uncertainty_analysis.ipynb](3_DS_MORDM_uncertainty_analysis.ipynb)
 - [4_DS_MORDM_scenario_discovery.ipynb](4_DS_MORDM_scenario_discovery.ipynb)
+  - Scenario discovery of selected policy proposals
 
 ### Input functions from EPA1361 course
 - [dike_model_function.py](dike_model_function.py)
