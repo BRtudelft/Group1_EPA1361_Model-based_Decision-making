@@ -1,20 +1,30 @@
-from ema_workbench import (
-    Model,
-    MultiprocessingEvaluator,
-    ScalarOutcome,
-    IntegerParameter,
-    optimize,
-    Scenario,
-)
-from ema_workbench.em_framework.optimization import EpsilonProgress, HyperVolume
-from ema_workbench.util import ema_logging
+""" MORDM framework - MOEA application
 
+The MOEA is used
+
+The Dike model is run with problem formulation 2 for 20.000 random
+scenarios. A 'do nothing' zero policy is implemented, with no
+active levers.
+
+A multiprocessing evaluator is used and the outcomes and
+experiments are saved to the output_data directory as csv files.
+
+The generated data is analysed in 2_DS_MORDM_generating_alternatives.ipynb.
+
+"""
+
+
+from ema_workbench.util import ema_logging
+from ema_workbench.em_framework.optimization import EpsilonProgress
+from ema_workbench import ( MultiprocessingEvaluator, Scenario)
 from problem_formulation import get_model_for_problem_formulation
-import matplotlib.pyplot as plt
-import seaborn as sns
 import random
 
-##Intro van inhoud file - beargumentatie hoeveel nfe enzo?
+# make sure pandas is version 1.0 or higher
+# make sure networkx is verion 2.4 or higher
+print(pd.__version__)
+print(nx.__version__)
+
 
 if __name__ == "__main__":
     random.seed(1361)
@@ -23,7 +33,7 @@ if __name__ == "__main__":
 
     model, steps = get_model_for_problem_formulation(2)
 
-    # Reference values follow from open exploration
+    # Define reference values of uncertainty analysis
     reference_values = {
         "A.1_Bmax": 107.338439,
         "A.1_Brate": 1.5,
@@ -61,9 +71,9 @@ if __name__ == "__main__":
             searchover="levers",
             epsilons=epsilon,
             convergence=convergence_metrics,
-            reference=ref_scenario, #reference scenario is defined
+            reference=ref_scenario,
         )
 
-    # Save outcomes to csv file
+    # Write results and convergence to csv
     results.to_csv('data/output_data/MOEA_results_10000nfe.csv')
     convergence.to_csv('data/output_data/MOEA_convergence_10000nfe.csv')

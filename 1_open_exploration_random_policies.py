@@ -25,6 +25,7 @@ print(nx.__version__)
 
 if __name__ == "__main__":
     random.seed(1361)
+
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     dike_model, planning_steps = get_model_for_problem_formulation(2)

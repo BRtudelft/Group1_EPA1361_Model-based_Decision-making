@@ -21,9 +21,15 @@ from ema_workbench import (Samplers, Model, MultiprocessingEvaluator,
                            )
 from problem_formulation import get_model_for_problem_formulation
 
+# make sure pandas is version 1.0 or higher
+# make sure networkx is verion 2.4 or higher
+print(pd.__version__)
+print(nx.__version__)
+
 
 if __name__ == "__main__":
     random.seed(1361)
+
     ema_logging.log_to_stderr(ema_logging.INFO)
 
     model, steps = get_model_for_problem_formulation(2)
