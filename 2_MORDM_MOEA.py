@@ -1,27 +1,29 @@
 """ MORDM framework - MOEA application
 
-The MOEA is used
+The MOEA is used to find pareto optimal combinations of levers for which
+the outcomes are minimized. The ema_workbench relies on the platypus-opt
+package for this optimization. A reference scenario is based on the
+combination of uncertainty parameters for which the model under
+the 'do nothing' zero policy presents the maximum number of deaths and
+expected annual damages.
 
-The Dike model is run with problem formulation 2 for 20.000 random
-scenarios. A 'do nothing' zero policy is implemented, with no
-active levers.
-
-A multiprocessing evaluator is used and the outcomes and
-experiments are saved to the output_data directory as csv files.
+The MOEA is run with 10.000 NFE and the results and convergence data are
+saved to the output_data directory as csv files.
 
 The generated data is analysed in 2_DS_MORDM_generating_alternatives.ipynb.
 
 """
 
-
+import pandas as pd
+import networkx as nx
 from ema_workbench.util import ema_logging
 from ema_workbench.em_framework.optimization import EpsilonProgress
-from ema_workbench import ( MultiprocessingEvaluator, Scenario)
+from ema_workbench import (MultiprocessingEvaluator, Scenario)
 from problem_formulation import get_model_for_problem_formulation
 import random
 
-# make sure pandas is version 1.0 or higher
-# make sure networkx is verion 2.4 or higher
+# Make sure pandas is version 1.0 or higher
+# Make sure networkx is verion 2.4 or higher
 print(pd.__version__)
 print(nx.__version__)
 

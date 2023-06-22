@@ -13,16 +13,16 @@ The generated data is analysed in 1_open_exploration.ipynb.
 """
 
 import pandas as pd
+import networkx as nx
 import random
 from ema_workbench.util import ema_logging
-from ema_workbench import (Samplers, Model, MultiprocessingEvaluator,
-                           ScalarOutcome, IntegerParameter, optimize,
-                           Scenario, Policy
+from ema_workbench import (Samplers, MultiprocessingEvaluator,
+                           Policy
                            )
 from problem_formulation import get_model_for_problem_formulation
 
-# make sure pandas is version 1.0 or higher
-# make sure networkx is verion 2.4 or higher
+# Make sure pandas is version 1.0 or higher
+# Make sure networkx is verion 2.4 or higher
 print(pd.__version__)
 print(nx.__version__)
 

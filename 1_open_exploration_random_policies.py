@@ -12,9 +12,7 @@ The generated data is analysed in 1_open_exploration.ipynb.
 import pandas as pd
 import networkx as nx
 import random
-from ema_workbench import (ema_logging, MultiprocessingEvaluator,
-                           Policy
-                           )
+from ema_workbench import (ema_logging, MultiprocessingEvaluator,)
 from problem_formulation import get_model_for_problem_formulation
 
 # Make sure pandas is version 1.0 or higher

@@ -19,8 +19,8 @@ from ema_workbench import (ema_logging, MultiprocessingEvaluator,
                            )
 from problem_formulation import get_model_for_problem_formulation
 
-# make sure pandas is version 1.0 or higher
-# make sure networkx is verion 2.4 or higher
+# Make sure pandas is version 1.0 or higher
+# Make sure networkx is verion 2.4 or higher
 print(pd.__version__)
 print(nx.__version__)
 
